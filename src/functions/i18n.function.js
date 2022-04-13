@@ -46,7 +46,7 @@ function select_language(language) {
                     id = ['en-US', 'zh-TW', 'zh-CN'].indexOf(language);
                     if (id < 0)
                         id = 0;
-                    return [4 /*yield*/, Promise.resolve().then(function () { return require("../../build/".concat(language, ".untouched.js")); })];
+                    return [4 /*yield*/, Promise.resolve().then(function () { return require("./".concat(language, ".optimized.js")); })];
                 case 1: return [2 /*return*/, (_a.sent()).i18n];
             }
         });

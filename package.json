@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "init-app": "yarn && yarn asbuild:dev && yarn build:worker-ts",
-    "build": "yarn asbuild && yarn exec sed -i 's/untouched.js/optimized.js/g' src/**/*.{svelte,js} && rollup -c && yarn exec sed -i 's/optimized.js/untouched.js/g' src/**/*.{svelte,js}",
+    "build": "yarn asbuild && rollup -c",
     "dev": "rollup -c -w",
     "dev:tailwind": "TAILWIND_MODE=watch tailwindcss -i public/assets/styles/index.css -o public/assets/styles/tailwind.css --watch",
     "start": "sirv public -s",
@@ -28,7 +28,7 @@
     "@rollup/plugin-commonjs": "21.0.3",
     "@rollup/plugin-eslint": "^8.0.2",
     "@rollup/plugin-node-resolve": "13.2.0",
-    "@rollup/plugin-typescript": "^8.3.1",
+    "@rollup/plugin-typescript": "^8.3.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/svelte": "^3.1.1",
     "@tsconfig/svelte": "^3.0.0",
