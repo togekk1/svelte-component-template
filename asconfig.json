@@ -1,0 +1,22 @@
+{
+  "targets": {
+    "debug": {
+      "sourceMap": true,
+      "debug": true,
+      "enable": ["gc", "reference-types"],
+      "exportRuntime": true,
+      "bindings": "esm"
+    },
+    "release": {
+      "sourceMap": false,
+      "optimizeLevel": 3,
+      "shrinkLevel": 2,
+      "converge": false,
+      "noAssert": false,
+      "enable": ["gc", "reference-types"],
+      "exportRuntime": true,
+      "bindings": "esm"
+    }
+  },
+  "options": {}
+}

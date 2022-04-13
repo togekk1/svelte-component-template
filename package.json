@@ -1,0 +1,105 @@
+{
+  "name": "svelte-component-template",
+  "version": "0.0.0",
+  "repository": "https://github.com/togekk1/svelte-component-template.git",
+  "license": "MIT",
+  "scripts": {
+    "init-app": "yarn && yarn asbuild:dev && yarn build:worker-ts",
+    "build": "yarn asbuild && yarn exec sed -i 's/untouched.js/optimized.js/g' src/**/*.{svelte,js} && rollup -c && yarn exec sed -i 's/optimized.js/untouched.js/g' src/**/*.{svelte,js}",
+    "dev": "rollup -c -w",
+    "dev:tailwind": "TAILWIND_MODE=watch tailwindcss -i public/assets/styles/index.css -o public/assets/styles/tailwind.css --watch",
+    "start": "sirv public -s",
+    "build:tailwind": "tailwind build -i public/assets/styles/index.css -o public/assets/styles/tailwind.css",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf public/build && yarn && yarn build:tailwind && yarn build:fontawesome && yarn dev",
+    "validate": "svelte-check",
+    "asbuild": "yarn exec ./asbuild.sh",
+    "asbuild:dev": "yarn exec ./asbuild-dev.sh",
+    "asbuild:post": "yarn exec sed -i 's/node://g' public/build/*.js",
+    "test": "node tests",
+    "i18n": "ts-node i18n.ts && yarn asbuild:dev",
+    "docs": "yarn docsify serve docs --port 9999",
+    "postinstall": "yarn exec cp -r public/assets $INIT_CWD/public && yarn exec cp -r public/build $INIT_CWD/public"
+  },
+  "devDependencies": {
+    "@assemblyscript/loader": "^0.20.4",
+    "@babel/preset-env": "^7.16.11",
+    "@popperjs/core": "^2.11.5",
+    "@rollup/plugin-alias": "3.1.9",
+    "@rollup/plugin-commonjs": "21.0.3",
+    "@rollup/plugin-eslint": "^8.0.2",
+    "@rollup/plugin-node-resolve": "13.2.0",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/svelte": "^3.1.1",
+    "@tsconfig/svelte": "^3.0.0",
+    "@types/jest": "^27.4.1",
+    "@types/json2csv": "^5.0.3",
+    "@types/node": "^17.0.23",
+    "@types/uglify-js": "^3.13.2",
+    "assemblyscript": "^0.20.4",
+    "assert": "^2.0.0",
+    "autoprefixer": "10.4.4",
+    "babel-jest": "^27.5.1",
+    "babel-polyfill": "^6.26.0",
+    "docsify-cli": "^4.4.4",
+    "jest": "^27.5.1",
+    "postcss": "^8.4.12",
+    "rollup": "2.70.1",
+    "rollup-plugin-dev": "^2.0.3",
+    "rollup-plugin-livereload": "2.0.5",
+    "rollup-plugin-svelte": "7.1.0",
+    "rollup-plugin-terser": "7.0.2",
+    "sirv-cli": "2.0.2",
+    "svelte": "3.47.0",
+    "svelte-jester": "^2.3.2",
+    "svelte-preprocess": "^4.10.5",
+    "tailwindcss": "3.0.24",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3",
+    "uglify-js": "^3.15.4"
+  },
+  "packageManager": "yarn@3.2.0",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.svelte$": [
+        "svelte-jester",
+        {
+          "preprocess": true
+        }
+      ]
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!svelte-routing|wasm-web-worker|@assemblyscript|@popperjs|svelte-flatpickr)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "svelte"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tests/tsconfig.test.json"
+      }
+    },
+    "moduleNameMapper": {
+      "^components/(.*)$": "<rootDir>/src/components/$1",
+      "^views/(.*)$": "<rootDir>/src/views/$1",
+      "^assets/(.*)$": "<rootDir>/src/assets/$1",
+      "^constants/(.*)$": "<rootDir>/src/constants/$1",
+      "^interfaces/(.*)$": "<rootDir>/src/interfaces/$1",
+      "^functions/(.*)$": "<rootDir>/src/functions/$1",
+      "^i18n/(.*)$": "<rootDir>/src/i18n/$1",
+      "assemblyscript-functions": "<rootDir>/node_modules/assemblyscript-functions/lib/test/index.js"
+    },
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "./jest.setup.js"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "Hello, World!": "Hello, World!",
+
+  // Error Messages
+  "e404": "Not Found",
+  "e500": "Internal Server Error",
+  "e501": "Not Implemented",
+  "e502": "Bad Gateway",
+  "e503": "Service Unavailable",
+  "e504": "Gateway Timeout"
+}
