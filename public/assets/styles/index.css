@@ -1,0 +1,106 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../font/roboto.woff2) format("woff2");
+  unicode-range: U+00-024F;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("微軟正黑體"), local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF;
+}
+
+@font-face {
+  font-family: "Roboto Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../font/roboto-medium.woff2) format("woff2");
+  unicode-range: U+00-024F;
+}
+
+@font-face {
+  font-family: "Roboto Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("微軟正黑體"), local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF;
+}
+
+.cm-editor {
+  height: 100%;
+}
+
+.ͼ2 .cm-gutters {
+  border-right: none;
+  background-color: #fafafa;
+}
+
+.cm-gutter {
+  width: 50px;
+  color: #bfbfbf;
+  font-family: Roboto;
+}
+
+.ͼ1 .cm-scroller {
+  font-family: Helvetica;
+  font-size: 14px;
+}
+
+.cm-line {
+  color: #323233;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  font-family: Roboto;
+}
+
+button.svelte-1y1be9d {
+  border: 2px solid #787878 !important;
+  width: 36px !important;
+  height: 24px !important;
+  color: #787878 !important;
+}
+
+button.svelte-1y1be9d[aria-checked="true"] {
+  border: 2px solid #008cd6 !important;
+  color: #008cd6 !important;
+}
+
+button.svelte-1y1be9d::before {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+button.svelte-1y1be9d[aria-checked="true"]::before {
+  transform: translateX(12px) !important;
+}
+
+.before\:border-dashed-custom::before {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%239bc2da' stroke-width='1' stroke-dasharray='3' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.flatpickr-input {
+  font-family: Roboto;
+  padding-left: 8px;
+}
+
+.flatpickr-input:focus-visible {
+  outline: none;
+}

@@ -21,6 +21,10 @@ const production = !process.env.ROLLUP_WATCH;
 const aliases = alias({
   resolve: [".svelte", ".js"], //optional, by default this will just look for .js files or folders
   entries: [
+    { find: "components", replacement: "src/components" },
+    { find: "constants", replacement: "src/constants" },
+    { find: "interfaces", replacement: "src/interfaces" },
+    { find: "functions", replacement: "src/functions" },
     { find: "i18n", replacement: "src/assembly/i18n" },
     { find: "src", replacement: "src" },
   ],
@@ -44,7 +48,7 @@ const indexTemplate = `
     <link rel="stylesheet" href="/assets/styles/style.css" />
     <link rel="stylesheet" href="/assets/styles/toastifier.min.css" />
     <link rel="stylesheet" href="/assets/styles/flatpickr.min.css" />
-    <title>Datalake</title>
+    <title>svelte-table</title>
 
     <script>
       if (process === undefined) {
